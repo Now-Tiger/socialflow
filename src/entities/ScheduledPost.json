@@ -1,0 +1,44 @@
+{
+  "name": "ScheduledPost",
+  "type": "object",
+  "properties": {
+    "content": {
+      "type": "string",
+      "description": "Post content/text"
+    },
+    "platforms": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["twitter", "linkedin", "instagram"]
+      },
+      "description": "Target social media platforms"
+    },
+    "scheduled_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the post should be published"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "scheduled", "published", "failed"],
+      "default": "draft",
+      "description": "Current status of the post"
+    },
+    "media_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "URLs of attached media files"
+    },
+    "hashtags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Hashtags for the post"
+    }
+  },
+  "required": ["content", "platforms", "scheduled_time"]
+}
